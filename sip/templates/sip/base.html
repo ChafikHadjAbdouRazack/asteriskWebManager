@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<title>Asterisk Web Manager</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="{% static 'sip/vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'sip/vendor/font-awesome/css/font-awesome.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'sip/vendor/chartist/css/chartist.min.css' %}">
+<link rel="stylesheet" href="{% static 'sip/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css' %}">
+<link rel="stylesheet" href="{% static 'sip/vendor/toastr/toastr.min.css' %}">
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="{% static 'sip/assets/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'sip/assets/css/color_skins.css' %}">
+</head>
+<body class="theme-orange">
+
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img src="{% static 'sip/images/logo-icon.svg' %}" width="48" height="48" alt="Lucid"></div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
+            </div>
+
+            <div class="navbar-brand">
+                <a href="index.html"><img src="{% static 'sip/images/logo.svg' %}" alt="Lucid Logo" class="img-responsive logo"></a>
+            </div>
+            <div class="navbar-right">
+                       <div id="navbar-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="page-login.html" class="icon-menu"><i class="icon-login"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="left-sidebar" class="sidebar">
+        <div class="sidebar-scroll">
+            <div class="user-account">
+                <img src="{% static 'sip/images/user.png' %}" class="rounded-circle user-photo" alt="User Profile Picture">
+                <div class="dropdown">
+                    <span>Welcome,</span>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Jessica Doe</strong></a>
+                </div>
+                <hr>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content p-l-0 p-r-0">
+                <div class="tab-pane animated fadeIn active" id="hr_menu">
+                    <nav class="sidebar-nav">
+                        <ul class="main-menu metismenu">
+                            <li>
+                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Employees</span></a>
+                                <ul>
+                                    <li><a href="emp-all.html">All Employees</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        {% block content %} {% endblock %}
+    </div>
+
+    </div>
+
+<!-- Javascript -->
+<script src="{% static 'sip/assets/bundles/libscripts.bundle.js' %}"></script>
+<script src="{% static 'sip/assets/bundles/vendorscripts.bundle.js' %}"></script>
+
+<script src="{% static 'sip/vendor/toastr/toastr.js' %}"></script>
+<script src="{% static 'sip/assets/bundles/chartist.bundle.js' %}"></script>
+<script src="{% static 'sip/assets/bundles/knob.bundle.js' %}"></script> <!-- Jquery Knob-->
+
+<script src="{% static 'sip/assets/bundles/mainscripts.bundle.js' %}"></script>
+<script src="{% static 'sip/assets/js/index.js' %}"></script>
+</body>
+
+</html>
