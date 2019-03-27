@@ -9,7 +9,7 @@ def index (request):
 
 
 def login(request):
-   HOST = "192.168.1.2"
+   HOST = "127.0.0.1"
    PORT = "5038"
    tn = telnetlib.Telnet(HOST, PORT)
    user = 'Username:'+request.POST['username']
