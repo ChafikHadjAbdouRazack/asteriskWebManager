@@ -38,10 +38,8 @@ def dashboard(request):
 
 
 def sip_index(request):
-   pass
+   return render(request, 'sip/sip.html')
 
-def sip_create(request):
-   pass
 
 def sip_store(request):
    pass

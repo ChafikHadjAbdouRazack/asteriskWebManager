@@ -1,95 +1,5 @@
-<!doctype html>
-<html lang="en">
-
-
-<!-- Mirrored from thememakker.com/templates/lucid/hr/html/light/emp-all.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Sep 2018 22:12:57 GMT -->
-<head>
-<title>:: Lucid HR :: Employee List</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
-<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
-
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- VENDOR CSS -->
-<link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="../assets/vendor/sweetalert/sweetalert.css"/>
-<link rel="stylesheet" href="../assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
-
-<!-- MAIN CSS -->
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/color_skins.css">
-</head>
-<body class="theme-orange">
-
-<!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img src="../assets/images/logo-icon.svg" width="48" height="48" alt="Lucid"></div>
-        <p>Please wait...</p>        
-    </div>
-</div>
-<!-- Overlay For Sidebars -->
-
-<div id="wrapper">
-
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-btn">
-                <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
-            </div>
-
-            <div class="navbar-brand">
-                <a href="index.html"><img src="../assets/images/logo.svg" alt="Lucid Logo" class="img-responsive logo"></a>                
-            </div>
-            
-            <div class="navbar-right">
-                                
-
-                <div id="navbar-menu">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="page-login.html" class="icon-menu"><i class="icon-login"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-            
-    <div id="left-sidebar" class="sidebar">
-        <div class="sidebar-scroll">
-            <div class="user-account">
-                <img src="../assets/images/user.png" class="rounded-circle user-photo" alt="User Profile Picture">
-                <div class="dropdown">
-                    <span>Welcome,</span>
-                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Jessica Doe</strong></a>
-                </div>
-                <hr>
-            </div>
-            <!-- Nav tabs -->
-                
-            <!-- Tab panes -->
-            <div class="tab-content p-l-0 p-r-0">
-                <div class="tab-pane animated fadeIn active" id="hr_menu">
-                    <nav class="sidebar-nav">
-                        <ul class="main-menu metismenu">
-                            <li class="active">
-                                <a href="#Employees" class="has-arrow"><i class="icon-users"></i><span>Employees</span></a>
-                                <ul>
-                                    <li class="active"><a href="emp-all.html">All Employees</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>            
-            </div>          
-        </div>
-    </div>
-
-    <div id="main-content">
+{% extends 'sip/base.html' %}
+{% block content %}
         <div class="container-fluid">
             <div class="block-header">
                 <div class="row">
@@ -162,10 +72,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-</div>
-
 <!-- Default Size -->
 <div class="modal animated zoomIn" id="addcontact" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -241,18 +147,4 @@
         </div>
     </div>
 </div>
-
-<!-- Javascript -->
-<script src="assets/bundles/libscripts.bundle.js"></script>    
-<script src="assets/bundles/vendorscripts.bundle.js"></script>
-
-<script src="assets/bundles/datatablescripts.bundle.js"></script>
-<script src="../assets/vendor/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js --> 
-
-<script src="assets/bundles/mainscripts.bundle.js"></script>
-<script src="assets/js/pages/tables/jquery-datatable.js"></script>
-<script src="assets/js/pages/ui/dialogs.js"></script>
-</body>
-
-<!-- Mirrored from thememakker.com/templates/lucid/hr/html/light/emp-all.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Sep 2018 22:12:58 GMT -->
-</html>
+{% endblock %}
