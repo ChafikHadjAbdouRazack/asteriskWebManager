@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sip/',include('sip.urls')),
     path('',views.index, name='index'),
-    path('login', views.login, name='login'),
+    path('login/', views.login, name='connexion'),
     path('dashboard',views.dashboard, name='dashboard')
 ]

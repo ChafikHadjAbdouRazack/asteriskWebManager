@@ -30,7 +30,7 @@
                             <p class="lead">Connexion Asterisk Web Manager</p>
                         </div>
                         <div class="body">
-                            <form class="form-auth-small" action="{% url 'login' %}" method="post">
+                            <form class="form-auth-small" action="{% url 'connexion' %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only" >Non d'utilisateur</label>
