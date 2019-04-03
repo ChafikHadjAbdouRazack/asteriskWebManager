@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
-import telnetlib, psutil
+import telnetlib, psutil, shlex, subprocess
 # Create your views here.
 
 def index (request):
@@ -45,8 +45,13 @@ def dashboard(request):
 
 
 def sip_index(request):
-
-   return render(request, 'sip/sip.html')
+   cmd = shlex.split("sudo /usr/sbin/asterisk -rx 'sip show peers'")
+   command = subprocess.Popen(cmd,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+   stdout, stderr = command.communicate()
+   context = {
+      'sip': stdout.decode('UTF-8').split('\n')
+   }
+   return render(request, 'sip/sip.html', context)
 
 
 def sip_store(request):
