@@ -19,9 +19,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>Liste des comptes sip</h2>
-                            <p>{{  sip }}</p>
                             <ul class="header-dropdown">
-                                <li><a href="javascript:void(0);" class="btn btn-info" data-toggle="modal" data-target="#addcontact">Add New</a></li>
+                                <li><a href="javascript:void(0);" class="btn btn-info" data-toggle="modal" data-target="#addcontact">Ajouter</a></li>
                             </ul>
                         </div>
                         <div class="body">
@@ -35,8 +34,7 @@
                                                     <span></span>
                                                 </label>
                                             </th>
-                                            <th>Extension</th>
-                                            <th>Nom d'utilisateur</th>
+                                            <th>Extension/Nom d'utilisateur</th>
                                             <th>Hote</th>
                                             <th>Port</th>
                                             <th>Statut</th>
@@ -44,7 +42,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                     {% for element in sip %}
                                         <tr>
+
                                             <td class="width45">
                                             <label class="fancy-checkbox">
                                                     <input class="checkbox-tick" type="checkbox" name="checkbox">
@@ -53,20 +53,20 @@
                                                 <img src="../assets/images/xs/avatar2.jpg" class="rounded-circle avatar" alt="">
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">Susie Willis</h6>
-                                                <span>sussie-w@gmail.com</span>
+                                                <span>{{ element.name }}</span>
                                             </td>
-                                            <td><span>LA-0216</span></td>
-                                            <td><span>+ 264-625-2583</span></td>
-                                            <td>28 Jun, 2015</td>
-                                            <td>Web Developer</td>
+                                            <td><span>{{ element.hote }}</span></td>
+                                            <td><span>{{ element.port }}</span></td>
+                                            <td>{{ element.status }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
                                                 <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
                                             </td>
                                         </tr>
+                                     {% endfor %}
                                     </tbody>
                                 </table>
+                                {{ stat }}
                             </div>
                         </div>
                     </div>
@@ -78,72 +78,40 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="title" id="defaultModalLabel">Add Contact</h6>
+                <h6 class="title" id="defaultModalLabel">Créer un compte SIP</h6>
             </div>
             <div class="modal-body">
                 <div class="row clearfix">
                     <div class="col-md-6">
-                        <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Name">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Extension">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Email ID">
+                            <input type="text" class="form-control" placeholder="Nom et Prénom">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">                                    
-                            <input type="number" class="form-control" placeholder="Phone Number">
-                        </div>
-                    </div>    
-                    <div class="col-md-4">
-                        <div class="form-group">                                   
-                            <input type="text" class="form-control" placeholder="Employee ID">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Join Date">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Role">
+                            <input type="password" class="form-control" placeholder="Secret">
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="form-group">                                            
-                            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                            <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Facebook">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">                                   
-                            <input type="text" class="form-control" placeholder="Twitter">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Linkedin">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="instagram">
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Confirmez le secret">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Add</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>

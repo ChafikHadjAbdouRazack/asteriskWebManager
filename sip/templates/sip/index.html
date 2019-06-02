@@ -37,10 +37,64 @@
                             <h6>Mémoire utilisée</h6>
                             <input type="text" class="knob2" data-linecap="round" value="{{ pourcentage }}" data-width="125" data-height="125" data-thickness="0.15" data-fgColor="#49a9e5" readonly>
                         </div>
+                         <div class="body text-center">
+                            <h6>Infomation compte SIP</h6>
+                            <p>{{ stat }}</p>
+                               <h6>Temps de foctionnement du serveur</h6>
+                            <p>{{ uptime }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                     <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover js-basic-example dataTable table-custom table-striped m-b-0 c_list">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>
+                                                <label class="fancy-checkbox">
+                                                    <input class="select-all" type="checkbox" name="checkbox">
+                                                    <span></span>
+                                                </label>
+                                            </th>
+                                            <th>Extension/Nom d'utilisateur</th>
+                                            <th>Hote</th>
+                                            <th>Port</th>
+                                            <th>Statut</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% for element in sip %}
+                                        <tr>
+
+                                            <td class="width45">
+                                            <label class="fancy-checkbox">
+                                                    <input class="checkbox-tick" type="checkbox" name="checkbox">
+                                                    <span></span>
+                                                </label>
+                                                <img src="../assets/images/xs/avatar2.jpg" class="rounded-circle avatar" alt="">
+                                            </td>
+                                            <td>
+                                                <span>{{ element.name }}</span>
+                                            </td>
+                                            <td><span>{{ element.hote }}</span></td>
+                                            <td><span>{{ element.port }}</span></td>
+                                            <td>{{ element.status }}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                     {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
 
     {% endblock %}
