@@ -63,7 +63,6 @@
                                             <th>Hote</th>
                                             <th>Port</th>
                                             <th>Statut</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -83,10 +82,6 @@
                                             <td><span>{{ element.hote }}</span></td>
                                             <td><span>{{ element.port }}</span></td>
                                             <td>{{ element.status }}</td>
-                                            <td>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></button>
-                                                <button type="button" class="btn btn-sm btn-outline-danger js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o"></i></button>
-                                            </td>
                                         </tr>
                                      {% endfor %}
                                     </tbody>
