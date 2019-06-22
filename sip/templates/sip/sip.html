@@ -76,6 +76,8 @@
 <!-- Default Size -->
 <div class="modal animated zoomIn" id="addcontact" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
+        <form method="post" action="{% url 'add_sip_user' %}">
+            {% csrf_token %}
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="title" id="defaultModalLabel">Créer un compte SIP</h6>
@@ -84,36 +86,38 @@
                 <div class="row clearfix">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Extension">
+                            <input type="text" name="extension" class="form-control" placeholder="Extension" required>
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">                                    
-                            <input type="text" class="form-control" placeholder="Nom et Prénom">
+                            <input type="text" name="full_name" class="form-control" placeholder="Nom et Prénom" required>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">                                    
-                            <input type="password" class="form-control" placeholder="Secret">
+                            <input type="password" name="password" class="form-control" placeholder="Secret" required>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Confirmez le secret">
+                            <input type="password" name="password_confirmed" class="form-control" placeholder="Confirmez le secret">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
+
         </div>
+        </form>
     </div>
 </div>
 {% endblock %}

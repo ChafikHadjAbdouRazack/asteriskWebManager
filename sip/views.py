@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
-import telnetlib, psutil, shlex, subprocess
+import telnetlib, psutil, shlex, subprocess, os
 
 
 # Create your views here.
@@ -71,6 +71,9 @@ def dashboard(request):
 
 
 def sip_index(request):
+    cmd = shlex.split("sudo /usr/sbin/asterisk -rx 'sip reload'")
+    command = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = command.communicate()
     cmd = shlex.split("sudo /usr/sbin/asterisk -rx 'sip show peers'")
     command = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = command.communicate()
@@ -96,4 +99,9 @@ def sip_index(request):
 
 
 def sip_store(request):
-    pass
+    sip_user_info = "\n[{}](default_template) \nfullname ={} \nusername ={} \nsecret={} \nmailbox ={} \ncontext=dept_1".format(request.POST['extension'],request.POST['full_name'], request.POST['username'],request.POST['password'],request.POST['extension'])
+    os.system("sudo bash -c 'echo \"{}\" >> /etc/asterisk/users.conf'".format(sip_user_info))
+    cmd = shlex.split("sudo /usr/sbin/asterisk -rx 'sip reload'")
+    command = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = command.communicate()
+    return redirect('sip.index')
